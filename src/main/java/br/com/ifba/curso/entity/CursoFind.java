@@ -22,12 +22,12 @@ public class CursoFind {
     //Metodo para buscar um curso pelo ID
     public static Curso findById(Long id) {
         EntityManager em = entityManagerFactory.createEntityManager();
-        try {
+        try{
             return em.find(Curso.class, id);
-        } catch (Exception e) {
+        }catch (Exception e){
             System.err.println("Erro ao buscar o curso por ID: " + e.getMessage());
             return null;
-        } finally {
+        }finally{
             em.close();
         }
     }
