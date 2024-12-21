@@ -11,6 +11,8 @@ import br.com.ifba.curso.entity.Curso;
  */
 public class CadastrarCurso extends javax.swing.JFrame {
 
+    Curso curso = new Curso(); //Cria um objeto Curso
+    
     /**
      * Creates new form CadastrarCurso
      */
@@ -29,9 +31,10 @@ public class CadastrarCurso extends javax.swing.JFrame {
 
         lblTituloCadastrar = new javax.swing.JLabel();
         lblInfoNomeCurso = new javax.swing.JLabel();
-        lblInfoDescCurso = new javax.swing.JLabel();
+        lbldDescCurso = new javax.swing.JLabel();
         txtNomeCurso = new javax.swing.JTextField();
-        txtDescricaoCurso = new javax.swing.JTextField();
+        txtIdCurso = new javax.swing.JTextField();
+        btnEnviaCadastro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,8 +44,8 @@ public class CadastrarCurso extends javax.swing.JFrame {
         lblInfoNomeCurso.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblInfoNomeCurso.setText("NOME DO CURSO:");
 
-        lblInfoDescCurso.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblInfoDescCurso.setText("DESCRIÇÃO DO CURSO:");
+        lbldDescCurso.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbldDescCurso.setText("ID DO CURSO:");
 
         txtNomeCurso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -50,9 +53,17 @@ public class CadastrarCurso extends javax.swing.JFrame {
             }
         });
 
-        txtDescricaoCurso.addActionListener(new java.awt.event.ActionListener() {
+        txtIdCurso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDescricaoCursoActionPerformed(evt);
+                txtIdCursoActionPerformed(evt);
+            }
+        });
+
+        btnEnviaCadastro.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnEnviaCadastro.setText("CADASTRAR");
+        btnEnviaCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnviaCadastroActionPerformed(evt);
             }
         });
 
@@ -69,13 +80,15 @@ public class CadastrarCurso extends javax.swing.JFrame {
                         .addGap(15, 15, 15)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblInfoDescCurso)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtDescricaoCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblInfoNomeCurso)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNomeCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(txtNomeCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btnEnviaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lbldDescCurso)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtIdCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(94, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -89,9 +102,11 @@ public class CadastrarCurso extends javax.swing.JFrame {
                     .addComponent(txtNomeCurso, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblInfoDescCurso)
-                    .addComponent(txtDescricaoCurso, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
-                .addGap(126, 126, 126))
+                    .addComponent(lbldDescCurso)
+                    .addComponent(txtIdCurso, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(btnEnviaCadastro)
+                .addGap(72, 72, 72))
         );
 
         pack();
@@ -100,15 +115,23 @@ public class CadastrarCurso extends javax.swing.JFrame {
     private void txtNomeCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeCursoActionPerformed
         // TODO add your handling code here:
         String nome = txtNomeCurso.getText();// Pega o texto do JTextField
-        Curso curso1 = new Curso();//Cria o objeto
-        this.setName(nome);
-                
-        
+        this.curso.setNome(nome);
+     
     }//GEN-LAST:event_txtNomeCursoActionPerformed
 
-    private void txtDescricaoCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescricaoCursoActionPerformed
+    private void txtIdCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdCursoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDescricaoCursoActionPerformed
+        String id = txtNomeCurso.getText();// Pega o texto do JTextField
+        this.curso.setCodCurso(id);
+        
+    }//GEN-LAST:event_txtIdCursoActionPerformed
+
+    private void btnEnviaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviaCadastroActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+    }//GEN-LAST:event_btnEnviaCadastroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,10 +169,11 @@ public class CadastrarCurso extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblInfoDescCurso;
+    private javax.swing.JButton btnEnviaCadastro;
     private javax.swing.JLabel lblInfoNomeCurso;
     private javax.swing.JLabel lblTituloCadastrar;
-    private javax.swing.JTextField txtDescricaoCurso;
+    private javax.swing.JLabel lbldDescCurso;
+    private javax.swing.JTextField txtIdCurso;
     private javax.swing.JTextField txtNomeCurso;
     // End of variables declaration//GEN-END:variables
 }

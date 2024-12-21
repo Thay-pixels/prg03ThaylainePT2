@@ -4,21 +4,29 @@
  */
 package br.com.ifba.curso.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 /**
  *
  * @author sunhe
  */
 @Entity
+@Table(name = "cursos")
 public class Curso {
     
-    //Atributos de Curso.
+    //Atributos de Curso e colunas da tabela
+    @Column(name = "nome", nullable = false)
     private String nome;
+    
+    @Column(name = "codigo_curso", nullable = false)
     private String codCurso;
+    
+    @Column(name = "ativo")
     private boolean ativo;
     
     @Id
@@ -54,11 +62,16 @@ public class Curso {
         this.ativo = ativo;
     }
 
-    //Construtor
-    /*public Curso(String nome, int codCurso, boolean status) {
+    //Constutor com todos os atributos
+    public Curso(String nome, String codCurso, boolean ativo, Long id) {
         this.nome = nome;
         this.codCurso = codCurso;
-        this.status = status;
-    }*/
+        this.ativo = ativo;
+        this.id = id;
+    }
+
+    //Construtor vazio
+    public Curso() {
+    }
    
 }
