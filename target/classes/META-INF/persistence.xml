@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://jakarta.ee/xml/ns/persistence http://"
+    version="2.2">
+    
+    <!-- IDENTIFICADOR DESSE PERSISTENCE UNIT -->
+    <persistence-unit name="gerenciamento_curso">
+        <properties>
+            
+            <!-- DADOS DA CONEXÃO -->
+            <property name="jakarta.persistence.jdbc.url"
+                value="jdbc:mysql://localhost:3307/prog3_gerenciamento_curso?useTimezone=true&amp;serverTimezone=UTC"/>
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
+            <property name="jakarta.persistence.jdbc.password" value=""/>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            
+            <!-- PROPRIEDADES DO HIBERNATE -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.show_sql" value="true"/>
+            
+            <!-- DETERMINA QUE, SE O BANCO NÃO EXISTE ELE CRIA SENÃO
+            ATUALIZA O QUE JÁ EXISTE -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            
+        </properties>
+    </persistence-unit>
+</persistence>
