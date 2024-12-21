@@ -10,9 +10,9 @@
             
             <!-- DADOS DA CONEXÃO -->
             <property name="jakarta.persistence.jdbc.url"
-                value="jdbc:mysql://localhost:3307/prog3_gerenciamento_curso?useTimezone=true&amp;serverTimezone=UTC"/>
+                value="jdbc:mysql://localhost:3306/gerenciamento_curso?useTimezone=true&amp;serverTimezone=UTC"/>
             <property name="jakarta.persistence.jdbc.user" value="root"/>
-            <property name="jakarta.persistence.jdbc.password" value=""/>
+            <property name="jakarta.persistence.jdbc.password" value="root"/>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
             
             <!-- PROPRIEDADES DO HIBERNATE -->

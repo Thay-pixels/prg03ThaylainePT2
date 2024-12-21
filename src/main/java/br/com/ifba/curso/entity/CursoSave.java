@@ -22,29 +22,31 @@ public class CursoSave {
 
     Curso curso = new Curso();
 
+    //Construtor vazio.
     public CursoSave() {
     }
  
-    //Método para Salvar ou atualizar o curso
-    public void save(){
-        EntityManager em = entityManagerFactory.createEntityManager();
+    //Método para Salvar com uma pequena parte para atualizar o curso.
+    public Curso save(Curso curso){
         try{
-            em.getTransaction().begin();
+            entityManager.getTransaction().begin();
             if(this.curso.getId() == null){
-                em.persist(this);
+               entityManager.persist(this);
             }else{
-                em.merge(this);
+                entityManager.merge(this);
             }
-            em.getTransaction().commit();
+            entityManager.getTransaction().commit();
         }catch(RollbackException e){
-            em.getTransaction().rollback();
-            System.err.println("Erro ao salvar o curso: " + e.getMessage());
+            entityManager.getTransaction().rollback();
+            System.err.println("Erro ao salvar o curso " + e.getMessage());
         }finally{
-            em.close();
+            entityManager.close();
         }
+        
+        return curso;
     }
     
-    //Fechando o EntityManagerFactory
+    //Fechando o EntityManagerFactory.
     public static void closeEntityManagerFactory(){
         if(entityManagerFactory.isOpen()){
             entityManagerFactory.close();

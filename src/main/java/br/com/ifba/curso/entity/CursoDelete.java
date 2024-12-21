@@ -14,31 +14,34 @@ import jakarta.persistence.RollbackException;
  *
  * @author sunhe
  */
+//Classe para deletar o Curso.
 public class CursoDelete {
     
-    Curso curso = new Curso();
+    Curso curso = new Curso();//Objeto para guardar o curso para apagar.
     
     private final static EntityManagerFactory entityManagerFactory = 
             Persistence.createEntityManagerFactory("gerenciamento_curso");
+    private final static EntityManager entityManager = entityManagerFactory.createEntityManager();
     
     //Metodo para deletar o curso.
-    public void delete(){
-        EntityManager em = entityManagerFactory.createEntityManager();
+    public Curso delete(Long id){
         try{
-            em.getTransaction().begin();
-            curso = em.find(Curso.class, this.curso.getId());
+            entityManager.getTransaction().begin();
+            curso = entityManager.find(Curso.class, this.curso.getId());
             if(curso != null){
-                em.remove(curso);
+                entityManager.remove(curso);
             }
-            em.getTransaction().commit();
+            entityManager.getTransaction().commit();
         }catch (RollbackException e){
-            em.getTransaction().rollback();
+            entityManager.getTransaction().rollback();
             System.err.println("Erro ao deletar o curso: " + e.getMessage());
         }finally{
-            em.close();
+            entityManager.close();
         }
+        
+        return curso;
     }   
-    //Fechando o EntityManagerFactory
+    //Fechando o EntityManagerFactory.
     public static void closeEntityManagerFactory(){
         if(entityManagerFactory.isOpen()){
             entityManagerFactory.close();

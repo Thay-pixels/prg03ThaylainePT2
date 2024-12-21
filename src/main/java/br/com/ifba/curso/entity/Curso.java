@@ -15,11 +15,12 @@ import jakarta.persistence.Table;
  *
  * @author sunhe
  */
+//Classe padrão de Curso.
 @Entity
 @Table(name = "cursos")
 public class Curso {
     
-    //Atributos de Curso e colunas da tabela
+    //Atributos de Curso e colunas da tabela.
     @Column(name = "nome", nullable = false)
     private String nome;
     
@@ -46,7 +47,7 @@ public class Curso {
         return codCurso;
     }
 
-    public boolean isativo() {
+    public boolean isAtivo() {
         return ativo;
     }
 
@@ -58,11 +59,11 @@ public class Curso {
         this.codCurso = codCurso;
     }
 
-    public void setStatus(boolean ativo) {
+    public void setAtivo(boolean ativo) {
         this.ativo = ativo;
     }
 
-    //Constutor com todos os atributos
+    //Constutor com todos os atributos.
     public Curso(String nome, String codCurso, boolean ativo, Long id) {
         this.nome = nome;
         this.codCurso = codCurso;
@@ -70,7 +71,7 @@ public class Curso {
         this.id = id;
     }
 
-    //Construtor vazio
+    //Construtor vazio.
     public Curso() {
     }
    

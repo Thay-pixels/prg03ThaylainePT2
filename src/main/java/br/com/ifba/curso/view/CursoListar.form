@@ -25,16 +25,16 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtCatchSearch" min="-2" pref="117" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnCadastrarCurso" min="-2" pref="144" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="txtPegaBusca" min="-2" pref="129" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="btnCadastrarCurso" min="-2" pref="150" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="btnEditarCurso" min="-2" pref="126" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btnRemoverCurso" min="-2" pref="120" max="-2" attributes="0"/>
-              <EmptySpace pref="9" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="btnRemoverCurso" min="-2" pref="126" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
-          <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
+          <Component id="jScrollPane1" alignment="1" pref="564" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -42,7 +42,7 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtCatchSearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtPegaBusca" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnCadastrarCurso" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="btnEditarCurso" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="btnRemoverCurso" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
@@ -72,25 +72,10 @@
               <Font name="Verdana" size="12" style="1"/>
             </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="3" rowCount="4">
-                <Column editable="true" title="CURSO" type="java.lang.Object">
-                  <Data value="Direito"/>
-                  <Data value="Medicina"/>
-                  <Data value="Engenharia"/>
-                  <Data value="null"/>
-                </Column>
-                <Column editable="true" title="C&#xd3;DIGO" type="java.lang.Object">
-                  <Data value="DIR01"/>
-                  <Data value="MED02"/>
-                  <Data value="ENG03"/>
-                  <Data value="null"/>
-                </Column>
-                <Column editable="true" title="STATUS" type="java.lang.Object">
-                  <Data value="Fechado"/>
-                  <Data value="Fechado"/>
-                  <Data value="Fechado"/>
-                  <Data value="null"/>
-                </Column>
+              <Table columnCount="3" rowCount="0">
+                <Column editable="true" title="CURSO" type="java.lang.Object"/>
+                <Column editable="true" title="C&#xd3;DIGO" type="java.lang.Object"/>
+                <Column editable="true" title="STATUS" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -119,7 +104,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JTextField" name="txtCatchSearch">
+    <Component class="javax.swing.JTextField" name="txtPegaBusca">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="12" style="3"/>
@@ -127,7 +112,7 @@
         <Property name="text" type="java.lang.String" value="      pesquisar..."/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCatchSearchActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPegaBuscaActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnCadastrarCurso">

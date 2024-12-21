@@ -4,19 +4,54 @@
  */
 package br.com.ifba.curso.view;
 
+import br.com.ifba.curso.entity.Curso;
+import br.com.ifba.curso.entity.CursoFind;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author sunhe
  */
 public class CursoListar extends javax.swing.JFrame {
-
+    //CursoListar tela;
+    //CursoFind cursoFind = new CursoFind();
+    
     /**
      * Creates new form CursoListar
      */
     public CursoListar() {
         initComponents();
+        //inserirDadosTela();
+    }
+    
+    /*private void inserirDadosTela(){//Preenche a tabela com os dados do BD.
+        CursoFind cursoFindInstance = new CursoFind();
+        for(Curso curso : cursoFind.findAll()){
+            Object[] cursos = {curso.getNome(), curso.getId(), curso.isAtivo()};
+            DefaultTableModel dtmCursos = (DefaultTableModel) CursoListar.this.getTblListaCurso().getModel();
+            dtmCursos.addRow(cursos);
+        }  
+    }*/
+
+    //Getter e Setter Tabela e Caixa de Busca.
+    public JTable getTblListaCurso() {
+        return tblListaCurso;
     }
 
+    public void setTblListaCurso(JTable tblListaCurso) {
+        this.tblListaCurso = tblListaCurso;
+    }
+
+    public JTextField getTxtPegaBusca() {
+        return txtPegaBusca;
+    }
+
+    public void setTxtPegaBusca(JTextField txtPegaBusca) {
+        this.txtPegaBusca = txtPegaBusca;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,7 +63,7 @@ public class CursoListar extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblListaCurso = new javax.swing.JTable();
-        txtCatchSearch = new javax.swing.JTextField();
+        txtPegaBusca = new javax.swing.JTextField();
         btnCadastrarCurso = new javax.swing.JButton();
         btnEditarCurso = new javax.swing.JButton();
         btnRemoverCurso = new javax.swing.JButton();
@@ -39,10 +74,7 @@ public class CursoListar extends javax.swing.JFrame {
         tblListaCurso.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         tblListaCurso.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Direito", "DIR01", "Fechado"},
-                {"Medicina", "MED02", "Fechado"},
-                {"Engenharia", "ENG03", "Fechado"},
-                {null, null, null}
+
             },
             new String [] {
                 "CURSO", "CÓDIGO", "STATUS"
@@ -50,11 +82,11 @@ public class CursoListar extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblListaCurso);
 
-        txtCatchSearch.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        txtCatchSearch.setText("      pesquisar...");
-        txtCatchSearch.addActionListener(new java.awt.event.ActionListener() {
+        txtPegaBusca.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        txtPegaBusca.setText("      pesquisar...");
+        txtPegaBusca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCatchSearchActionPerformed(evt);
+                txtPegaBuscaActionPerformed(evt);
             }
         });
 
@@ -91,22 +123,22 @@ public class CursoListar extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtCatchSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnCadastrarCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtPegaBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCadastrarCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEditarCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnRemoverCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(9, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRemoverCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCatchSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPegaBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCadastrarCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEditarCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRemoverCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -117,9 +149,9 @@ public class CursoListar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtCatchSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCatchSearchActionPerformed
+    private void txtPegaBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPegaBuscaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCatchSearchActionPerformed
+    }//GEN-LAST:event_txtPegaBuscaActionPerformed
 
     private void btnEditarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarCursoActionPerformed
         // TODO add your handling code here:
@@ -183,6 +215,6 @@ public class CursoListar extends javax.swing.JFrame {
     private javax.swing.JButton btnRemoverCurso;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblListaCurso;
-    private javax.swing.JTextField txtCatchSearch;
+    private javax.swing.JTextField txtPegaBusca;
     // End of variables declaration//GEN-END:variables
 }

@@ -17,5 +17,6 @@ public class CursoUpdate {
     
     private final static EntityManagerFactory entityManagerFactory = 
             Persistence.createEntityManagerFactory("gerenciamento_curso");
+    private final static EntityManager entityManager = entityManagerFactory.createEntityManager();
     
 }
