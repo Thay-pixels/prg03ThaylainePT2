@@ -5,7 +5,7 @@
     version="2.2">
     
     <!-- IDENTIFICADOR DESSE PERSISTENCE UNIT -->
-    <persistence-unit name="gerenciamento_curso">
+    <persistence-unit name="p_dao">
         <properties>
             
             <!-- DADOS DA CONEXÃO -->

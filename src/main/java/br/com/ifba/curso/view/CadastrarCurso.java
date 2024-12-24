@@ -3,11 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package br.com.ifba.curso.view;
+import br.com.ifba.curso.dao.CursoDao;
+import br.com.ifba.curso.dao.CursoIDao;
 import br.com.ifba.curso.entity.Curso;
-import br.com.ifba.curso.entity.CursoSave;
+import br.com.ifba.infrastructure.dao.GenericDao;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import br.com.ifba.curso.view.CursoListar;
-import br.com.ifba.curso.entity.CursoFind;
 
 
 /**
@@ -16,15 +18,17 @@ import br.com.ifba.curso.entity.CursoFind;
  */
 public class CadastrarCurso extends javax.swing.JFrame {
 
-    Curso curso = new Curso(); //Cria um objeto Curso
+    CadastrarCurso tela; //Cria um objeto Curso
     String cod;//Variavel para pegar o id do curso
     String nome;
+    private CursoIDao cursoDao = new CursoDao();
     
     /**
      * Creates new form CadastrarCurso
      */
     public CadastrarCurso() {
         initComponents();
+        this.tela = tela;
     }
 
     /**
@@ -122,35 +126,34 @@ public class CadastrarCurso extends javax.swing.JFrame {
 
     private void txtNomeCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeCursoActionPerformed
         // TODO add your handling code here:
-        nome = txtNomeCurso.getText();// Pega o texto do JTextField
-        this.curso.setNome(nome);
      
     }//GEN-LAST:event_txtNomeCursoActionPerformed
 
     private void txtIdCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdCursoActionPerformed
         // TODO add your handling code here:
-        cod = txtNomeCurso.getText();// Pega o texto do JTextField
-        
         
     }//GEN-LAST:event_txtIdCursoActionPerformed
 
     private void btnEnviaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviaCadastroActionPerformed
         // TODO add your handling code here:
-        CursoSave cursoSaveInstance = new CursoSave(); // Instancia para salvar o curso.
-
-        boolean status; // Status do curso.
-        this.curso.setAtivo(true);
-        this.curso.setNome(nome);
-
-        cursoSaveInstance.save(curso);
-
-        Object[] cursos = {curso.getNome(), curso.getId(), curso.isAtivo()};
-
-        DefaultTableModel tblListaCursos = null;
-        tblListaCursos.addRow(cursos); // Adiciona uma linha na tabela com os dados obtidos.
         
+        Curso curso = new Curso();
+        curso.setNome(txtNomeCurso.getText());
+        curso.setCodCurso(txtIdCurso.getText());
+        curso.setAtivo(true);
+        boolean status; // Status do curso.
+
+        DefaultListModel lista = new DefaultListModel();
+    
+        CursoIDao cursoDao = new CursoDao();
+        cursoDao.save(curso);
+        
+        JOptionPane.showMessageDialog(this, "Curso salvo com sucesso!"); // Mostra mensagem de confirmação
+      
     }//GEN-LAST:event_btnEnviaCadastroActionPerformed
 
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -194,4 +197,6 @@ public class CadastrarCurso extends javax.swing.JFrame {
     private javax.swing.JTextField txtIdCurso;
     private javax.swing.JTextField txtNomeCurso;
     // End of variables declaration//GEN-END:variables
+
+
 }

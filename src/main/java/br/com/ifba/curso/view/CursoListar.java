@@ -5,17 +5,20 @@
 package br.com.ifba.curso.view;
 
 import br.com.ifba.curso.entity.Curso;
-import br.com.ifba.curso.entity.CursoFind;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JOptionPane;
+import br.com.ifba.infrastructure.dao.GenericDao;
+import br.com.ifba.curso.dao.CursoDao;
+import br.com.ifba.curso.dao.CursoIDao;
 
 /**
  *
  * @author sunhe
  */
 public class CursoListar extends javax.swing.JFrame {
-    //CursoListar tela;
+    CursoListar tela;
     //CursoFind cursoFind = new CursoFind();
     
     /**
@@ -36,12 +39,12 @@ public class CursoListar extends javax.swing.JFrame {
     }*/
 
     //Getter e Setter Tabela e Caixa de Busca.
-    public JTable getTblListaCurso() {
-        return tblListaCurso;
+    public JTable getlistaCurso() {
+        return listaCurso;
     }
 
-    public void setTblListaCurso(JTable tblListaCurso) {
-        this.tblListaCurso = tblListaCurso;
+    public void setlistaCurso(JTable listaCurso) {
+        this.listaCurso = listaCurso;
     }
 
     public JTextField getTxtPegaBusca() {
@@ -51,6 +54,8 @@ public class CursoListar extends javax.swing.JFrame {
     public void setTxtPegaBusca(JTextField txtPegaBusca) {
         this.txtPegaBusca = txtPegaBusca;
     }
+    
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -62,7 +67,7 @@ public class CursoListar extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblListaCurso = new javax.swing.JTable();
+        listaCurso = new javax.swing.JTable();
         txtPegaBusca = new javax.swing.JTextField();
         btnCadastrarCurso = new javax.swing.JButton();
         btnEditarCurso = new javax.swing.JButton();
@@ -70,9 +75,9 @@ public class CursoListar extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        tblListaCurso.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        tblListaCurso.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        tblListaCurso.setModel(new javax.swing.table.DefaultTableModel(
+        listaCurso.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        listaCurso.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        listaCurso.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -80,7 +85,7 @@ public class CursoListar extends javax.swing.JFrame {
                 "CURSO", "CÓDIGO", "STATUS"
             }
         ));
-        jScrollPane1.setViewportView(tblListaCurso);
+        jScrollPane1.setViewportView(listaCurso);
 
         txtPegaBusca.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         txtPegaBusca.setText("      pesquisar...");
@@ -164,7 +169,7 @@ public class CursoListar extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         new CadastrarCurso().setVisible(true);//Linha que traz a tela de cadastrar curso para a principal.
-        
+       
     }//GEN-LAST:event_btnCadastrarCursoActionPerformed
 
     private void btnRemoverCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverCursoActionPerformed
@@ -214,7 +219,7 @@ public class CursoListar extends javax.swing.JFrame {
     private javax.swing.JButton btnEditarCurso;
     private javax.swing.JButton btnRemoverCurso;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblListaCurso;
+    private javax.swing.JTable listaCurso;
     private javax.swing.JTextField txtPegaBusca;
     // End of variables declaration//GEN-END:variables
 }

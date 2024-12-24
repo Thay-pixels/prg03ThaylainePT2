@@ -10,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import br.com.ifba.infrastructure.entity.PersistenceEntity;
 
 /**
  *
@@ -18,7 +19,7 @@ import jakarta.persistence.Table;
 //Classe padrão de Curso.
 @Entity
 @Table(name = "cursos")
-public class Curso {
+public class Curso extends PersistenceEntity{
     
     //Atributos de Curso e colunas da tabela.
     @Column(name = "nome", nullable = false)

@@ -1,9 +1,10 @@
+C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\Gerenciamento_Curso\src\main\java\br\com\ifba\curso\dao\CursoDao.java
+C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\Gerenciamento_Curso\src\main\java\br\com\ifba\curso\dao\CursoIDao.java
 C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\Gerenciamento_Curso\src\main\java\br\com\ifba\curso\entity\Curso.java
-C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\Gerenciamento_Curso\src\main\java\br\com\ifba\curso\entity\CursoDelete.java
-C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\Gerenciamento_Curso\src\main\java\br\com\ifba\curso\entity\CursoFind.java
-C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\Gerenciamento_Curso\src\main\java\br\com\ifba\curso\entity\CursoSave.java
-C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\Gerenciamento_Curso\src\main\java\br\com\ifba\curso\entity\CursoUpdate.java
 C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\Gerenciamento_Curso\src\main\java\br\com\ifba\curso\view\CadastrarCurso.java
 C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\Gerenciamento_Curso\src\main\java\br\com\ifba\curso\view\CursoListar.java
 C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\Gerenciamento_Curso\src\main\java\br\com\ifba\curso\view\EditarCurso.java
 C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\Gerenciamento_Curso\src\main\java\br\com\ifba\curso\view\RemoverCurso.java
+C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\Gerenciamento_Curso\src\main\java\br\com\ifba\infrastructure\dao\GenericDao.java
+C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\Gerenciamento_Curso\src\main\java\br\com\ifba\infrastructure\dao\GenericIDao.java
+C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\Gerenciamento_Curso\src\main\java\br\com\ifba\infrastructure\entity\PersistenceEntity.java
