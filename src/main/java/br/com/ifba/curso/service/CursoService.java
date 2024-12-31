@@ -2,24 +2,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.com.ifba.infrastructure.dao;
+package br.com.ifba.curso.service;
 
+import br.com.ifba.curso.dao.CursoDao;
+import br.com.ifba.curso.dao.CursoIDao;
 import br.com.ifba.curso.entity.Curso;
-import br.com.ifba.infrastructure.entity.PersistenceEntity;
+import jakarta.persistence.Entity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.RollbackException;
 import java.lang.reflect.ParameterizedType;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
  * @author sunhe
  */
-public class GenericDao<Entity extends PersistenceEntity>implements GenericIDao<Entity> {
-
+public class CursoService implements CursoIService{
+    
+    private final CursoIDao cursoDao = new CursoDao();
+    
     protected static EntityManager entityManager;
     static{
         EntityManagerFactory factory = Persistence. createEntityManagerFactory("p_dao");
@@ -27,22 +30,10 @@ public class GenericDao<Entity extends PersistenceEntity>implements GenericIDao<
     }
 
     Curso curso = new Curso();
-    
-    protected Class<?> getTypeClass () {
-        Class<?> clazz = (Class<?>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-        return clazz;
-    }
-    
-    /*//Fechando o EntityManagerFactory.
-    public static void closeEntityManagerFactory(){
-        if(entityManagerFactory.isOpen()){
-            entityManagerFactory.close();
-        }
-    }*/
 
     //Método para Salvar com uma pequena parte para atualizar o curso.
     @Override
-    public Entity save(Entity obj) {
+    public void save(Curso curso) {
         try{
             entityManager.getTransaction().begin();
             if(this.curso.getId() == null){
@@ -57,19 +48,14 @@ public class GenericDao<Entity extends PersistenceEntity>implements GenericIDao<
         }finally{
             entityManager.close();
         }
-        return null;
-    }
-
-    @Override
-    public Entity update(Entity obj) {
-       
-        return null;
-       
+        
+        cursoDao.save(curso);
+     
     }
 
      //Metodo para deletar o curso.
     @Override
-    public void delete(Entity obj) {
+    public void delete(Curso curso) {
         try{
             entityManager.getTransaction().begin();
             curso = entityManager.find(Curso.class, this.curso.getId());
@@ -87,14 +73,20 @@ public class GenericDao<Entity extends PersistenceEntity>implements GenericIDao<
     
     //Metodo para buscar todos os cursos.
     @Override
-    public List<Entity> findAll(){
-    return entityManager.createQuery("from " + getTypeClass().getName()).getResultList();
+    public List<Curso> findAll(){
+        return cursoDao.findAll();
+        
     }
 
     //Metodo para buscar um curso pelo ID.
     @Override
-    public Entity findById(Long id) { 
-    return (Entity) entityManager.find(getTypeClass(), id);
+    public Curso findById(Long id) { 
+        return cursoDao.findById(id);
+        
     }
+    
+    public List<Curso> findByNome(String nome) throws RuntimeException {
+        return cursoDao.findByNome(nome);
+    } 
     
 }
