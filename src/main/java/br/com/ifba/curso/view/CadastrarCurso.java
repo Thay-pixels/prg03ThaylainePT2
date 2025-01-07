@@ -3,8 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package br.com.ifba.curso.view;
-import br.com.ifba.curso.controller.CursoController;
-import br.com.ifba.curso.controller.CursoIController;
 import br.com.ifba.curso.dao.CursoDao;
 import br.com.ifba.curso.dao.CursoIDao;
 import br.com.ifba.curso.entity.Curso;
@@ -19,10 +17,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class CadastrarCurso extends javax.swing.JFrame {
 
-    private final CursoListar cursoListar = null;
-    private final CursoIController cursoController = new CursoController();
-    private String codCurso;//Variavel para pegar o id do curso
-    private String nomeCurso;
+    CadastrarCurso tela; //Cria um objeto Curso
+    String cod;//Variavel para pegar o id do curso
+    String nome;
     private CursoIDao cursoDao = new CursoDao();
     
     /**
@@ -30,7 +27,7 @@ public class CadastrarCurso extends javax.swing.JFrame {
      */
     public CadastrarCurso() {
         initComponents();
-      
+        this.tela = tela;
     }
 
     /**
@@ -139,28 +136,22 @@ public class CadastrarCurso extends javax.swing.JFrame {
     private void btnEnviaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviaCadastroActionPerformed
         // TODO add your handling code here:
         
-        //Faz a verificacao se todos os campos estão preenchidos.
-        if(txtNomeCurso.getText().isEmpty() || txtIdCurso.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "ERRO! PREENCHA TODOS OS CAMPOS!", "ERRO",
-                    JOptionPane.ERROR_MESSAGE);
-        }else{
-            //Insere os dados obtidos da tela em um objeto Cuurso.
-            Curso curso = new Curso();
-            curso.setNome(txtNomeCurso.getText());
-            curso.setCodCurso(txtIdCurso.getText());
-            curso.setAtivo(true);
+        Curso curso = new Curso();
+        curso.setNome(txtNomeCurso.getText());
+        curso.setCodCurso(txtIdCurso.getText());
+        curso.setAtivo(true);
+        boolean status; // Status do curso.
 
-            //Salva as informações do curso no banco de dados.
-            CursoIDao cursoDao = new CursoDao();
-            cursoDao.save(curso);
-            cursoController.save(curso);
-
-            //Atualiza a tabela de cursos e fecha a tela de cadastro
-            cursoListar.carregarTabelaCursos();
-            this.dispose();
+        DefaultListModel lista = new DefaultListModel();
+    
+        CursoIDao cursoDao = new CursoDao();
+        cursoDao.save(curso);
+        
+        JOptionPane.showMessageDialog(this, "Curso salvo com sucesso!"); // Mostra mensagem de confirmação
       
     }//GEN-LAST:event_btnEnviaCadastroActionPerformed
-}
+
+    
     
     /**
      * @param args the command line arguments
