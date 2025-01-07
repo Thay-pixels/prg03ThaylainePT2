@@ -4,6 +4,8 @@
  */
 package br.com.ifba.curso.view;
 
+import br.com.ifba.curso.controller.CursoController;
+import br.com.ifba.curso.controller.CursoIController;
 import br.com.ifba.curso.entity.Curso;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -17,25 +19,15 @@ import br.com.ifba.curso.dao.CursoIDao;
  * @author sunhe
  */
 public class CursoListar extends javax.swing.JFrame {
-    CursoListar tela;
-    //CursoFind cursoFind = new CursoFind();
+    private final CursoIController cursoController = new CursoController();
     
     /**
      * Creates new form CursoListar
      */
     public CursoListar() {
         initComponents();
-        //inserirDadosTela();
+   
     }
-    
-    /*private void inserirDadosTela(){//Preenche a tabela com os dados do BD.
-        CursoFind cursoFindInstance = new CursoFind();
-        for(Curso curso : cursoFind.findAll()){
-            Object[] cursos = {curso.getNome(), curso.getId(), curso.isAtivo()};
-            DefaultTableModel dtmCursos = (DefaultTableModel) CursoListar.this.getTblListaCurso().getModel();
-            dtmCursos.addRow(cursos);
-        }  
-    }*/
 
     //Getter e Setter Tabela e Caixa de Busca.
     public JTable getlistaCurso() {
@@ -54,8 +46,11 @@ public class CursoListar extends javax.swing.JFrame {
         this.txtPegaBusca = txtPegaBusca;
     }
     
-    
-    
+    public void carregarTabelaCursos(){
+        DefaultTableModel tabela = (DefaultTableModel) listaCurso.getModel();//Pegando o modelo da tabela.
+        
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -181,6 +176,7 @@ public class CursoListar extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -205,7 +201,6 @@ public class CursoListar extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new CursoListar().setVisible(true);
