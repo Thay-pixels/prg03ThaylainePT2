@@ -16,6 +16,7 @@ import br.com.ifba.infrastructure.entity.PersistenceEntity;
  *
  * @author sunhe
  */
+
 //Classe padrão de Curso.
 @Entity
 @Table(name = "cursos")

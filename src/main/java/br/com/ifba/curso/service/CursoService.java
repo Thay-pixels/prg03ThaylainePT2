@@ -14,14 +14,23 @@ import jakarta.persistence.Persistence;
 import jakarta.persistence.RollbackException;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author sunhe
  */
+
+@Service
 public class CursoService implements CursoIService{
     
-    private final CursoIDao cursoDao = new CursoDao();
+    private final CursoIDao cursoDao; 
+    
+    @Autowired 
+    public CursoService(CursoIDao cursoDao) {
+        this.cursoDao = cursoDao;
+    }
     
     protected static EntityManager entityManager;
     static{
@@ -34,26 +43,24 @@ public class CursoService implements CursoIService{
     //Método para Salvar com uma pequena parte para atualizar o curso.
     @Override
     public void save(Curso curso) {
-        try{
-            entityManager.getTransaction().begin();
-            if(this.curso.getId() == null){
-               entityManager.persist(this);
-            }else{
-                entityManager.merge(this);
-            }
-            entityManager.getTransaction().commit();
-        }catch(RollbackException e){
-            entityManager.getTransaction().rollback();
-            System.err.println("Erro ao salvar o curso " + e.getMessage());
-        }finally{
-            entityManager.close();
+         if(curso == null){//Verifica se o curso teve dados vazios.
+            throw new RuntimeException ("Dados do curso nao preenchidos!");
+
+        //Verifica se o curso já possui um ID, se sim, ele já existe na base de dados.
+        } else if(curso.getId() != null){
+            throw new RuntimeException ("O curso ja existe no banco de dados!");
+        } else {//Se passar pelos dois, então é curso novo.
+            cursoDao.save(curso);
         }
-        
-        cursoDao.save(curso);
      
     }
+    
+    @Override
+    public void update(Curso curso){
+        
+    }
 
-     //Metodo para deletar o curso.
+    //Metodo para deletar o curso.
     @Override
     public void delete(Curso curso) {
         try{
@@ -70,13 +77,6 @@ public class CursoService implements CursoIService{
             entityManager.close();
         }
     }
-    
-    //Metodo para buscar todos os cursos.
-    @Override
-    public List<Curso> findAll(){
-        return cursoDao.findAll();
-        
-    }
 
     //Metodo para buscar um curso pelo ID.
     @Override
@@ -88,5 +88,12 @@ public class CursoService implements CursoIService{
     public List<Curso> findByNome(String nome) throws RuntimeException {
         return cursoDao.findByNome(nome);
     } 
+    
+    //Metodo para buscar todos os cursos.
+    @Override
+    public List<Curso> findAll(){
+        return cursoDao.findAll();
+        
+    }
     
 }

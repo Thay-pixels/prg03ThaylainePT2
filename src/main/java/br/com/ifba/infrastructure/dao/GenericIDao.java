@@ -11,22 +11,23 @@ import java.util.List;
  *
  * @author sunhe
  */
+
 //Interface GenericIDAO.
 public interface GenericIDao<Entity extends PersistenceEntity> {
 
-    //Método de salvar.
-    public abstract Entity save(Entity obj);
+    //Método abstrato de salvar.
+     public abstract void save(Entity obj);
 
-    //Metodo de update.
-    public abstract Entity update(Entity obj);
+    //Metodo abstrato de update.
+    public abstract void update(Entity obj);
 
-    //Metodo de deletar.
+    //Metodo abstrato de deletar.
     public abstract void delete(Entity obj);
 
-    //Metodo de encontrar todos.
+    //Metodo abstrato de encontrar todos.
     public abstract List<Entity> findAll();
     
-    //Metodo de encontrar pelo ID.
+    //Metodo abstrato de encontrar pelo ID.
     public abstract Entity findById(Long id);
     
 }
