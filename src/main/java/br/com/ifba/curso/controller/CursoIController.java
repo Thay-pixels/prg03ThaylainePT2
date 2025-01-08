@@ -13,10 +13,11 @@ import java.util.List;
  */
 public interface CursoIController {
     
-    public abstract void save(Curso curso) throws RuntimeException;
-    public abstract void delete(Curso curso) throws RuntimeException;
-    public abstract Curso findById(Long id) throws RuntimeException;
-    public abstract List<Curso> findByNome(String nome) throws RuntimeException;
-    public abstract List<Curso> findAll() throws RuntimeException;
+    public abstract void save(Curso curso);
+    public abstract void update(Curso curso);
+    public abstract void delete(Curso curso);
+    public abstract Curso findById(Long id);
+    public abstract List <Curso> findByNome(String nome);
+    public abstract List <Curso> findAll();
     
 }

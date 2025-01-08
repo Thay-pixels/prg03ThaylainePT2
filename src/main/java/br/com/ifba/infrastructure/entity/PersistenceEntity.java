@@ -15,6 +15,7 @@ import java.io.Serializable;
  *
  * @author sunhe
  */
+
 @MappedSuperclass
 public abstract class PersistenceEntity implements Serializable {
         @Id
