@@ -11,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import br.com.ifba.infrastructure.entity.PersistenceEntity;
+import java.io.Serializable;
 
 /**
  *
@@ -20,13 +21,13 @@ import br.com.ifba.infrastructure.entity.PersistenceEntity;
 //Classe padrão de Curso.
 @Entity
 @Table(name = "cursos")
-public class Curso extends PersistenceEntity{
+public class Curso extends PersistenceEntity implements Serializable{
     
     //Atributos de Curso e colunas da tabela.
     @Column(name = "nome", nullable = false)
     private String nome;
     
-    @Column(name = "codigo_curso", nullable = false)
+    @Column(name = "codigo_curso", nullable = false, unique = true)
     private String codCurso;
     
     @Column(name = "ativo")

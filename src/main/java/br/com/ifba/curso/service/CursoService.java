@@ -4,15 +4,14 @@
  */
 package br.com.ifba.curso.service;
 
-import br.com.ifba.curso.dao.CursoDao;
-import br.com.ifba.curso.dao.CursoIDao;
+
 import br.com.ifba.curso.entity.Curso;
-import jakarta.persistence.Entity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.RollbackException;
 import java.lang.reflect.ParameterizedType;
+import br.com.ifba.curso.repository.CursoRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,14 +21,15 @@ import org.springframework.stereotype.Service;
  * @author sunhe
  */
 
+//Classe Service para Curso.
 @Service
 public class CursoService implements CursoIService{
     
-    private final CursoIDao cursoDao; 
+    private final CursoRepository cursoRepository; 
     
     @Autowired 
-    public CursoService(CursoIDao cursoDao) {
-        this.cursoDao = cursoDao;
+    public CursoService(CursoRepository cursoRepository) {
+        this.cursoRepository = cursoRepository;
     }
     
     protected static EntityManager entityManager;
@@ -50,11 +50,12 @@ public class CursoService implements CursoIService{
         } else if(curso.getId() != null){
             throw new RuntimeException ("O curso ja existe no banco de dados!");
         } else {//Se passar pelos dois, então é curso novo.
-            cursoDao.save(curso);
+            cursoRepository.save(curso);
         }
      
     }
     
+    //Método de update do curso.
     @Override
     public void update(Curso curso){
         
@@ -81,18 +82,18 @@ public class CursoService implements CursoIService{
     //Metodo para buscar um curso pelo ID.
     @Override
     public Curso findById(Long id) { 
-        return cursoDao.findById(id);
+         return cursoRepository.findById(id).orElse(null);
         
     }
     
     public List<Curso> findByNome(String nome) throws RuntimeException {
-        return cursoDao.findByNome(nome);
+        return cursoRepository.findByNome(nome);
     } 
     
     //Metodo para buscar todos os cursos.
     @Override
     public List<Curso> findAll(){
-        return cursoDao.findAll();
+        return cursoRepository.findAll();
         
     }
     

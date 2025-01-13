@@ -5,8 +5,6 @@
 package br.com.ifba.curso.view;
 import br.com.ifba.curso.controller.CursoController;
 import br.com.ifba.curso.controller.CursoIController;
-import br.com.ifba.curso.dao.CursoDao;
-import br.com.ifba.curso.dao.CursoIDao;
 import br.com.ifba.curso.entity.Curso;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -24,7 +22,6 @@ public class TelaCadastrar extends javax.swing.JFrame {
     private String codCurso;
     
     //private final TelaCurso telaCurso;
-    private CursoIDao cursoDao = new CursoDao();
     
     private final CursoIController cursoController = new CursoController();
 
@@ -193,6 +190,8 @@ public class TelaCadastrar extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TelaCadastrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

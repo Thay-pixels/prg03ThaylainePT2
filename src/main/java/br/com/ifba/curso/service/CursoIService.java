@@ -12,6 +12,8 @@ import java.util.List;
  *
  * @author sunhe
  */
+
+//Interface para implementação do CursoSerivce.
 public interface CursoIService {
     
     public abstract void save(Curso curso);

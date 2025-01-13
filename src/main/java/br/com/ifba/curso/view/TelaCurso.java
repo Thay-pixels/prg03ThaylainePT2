@@ -8,22 +8,26 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import br.com.ifba.curso.controller.CursoController;
 import br.com.ifba.curso.controller.CursoIController;
-import br.com.ifba.curso.dao.CursoDao;
 import br.com.ifba.curso.entity.Curso;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 
 /**
  *
  * @author sunhe
  */
+
+@Component
 public class TelaCurso extends javax.swing.JFrame {
 
     private TelaCurso tela;
-    private CursoDao dao = new CursoDao();
-    private final CursoIController cursoController = new CursoController();
+    
+    @Autowired
+    CursoIController cursoController;
     
     /**
      * Creates new form TelaCurso
@@ -223,6 +227,7 @@ public class TelaCurso extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TelaCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
