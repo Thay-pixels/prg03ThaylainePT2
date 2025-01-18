@@ -9,31 +9,32 @@ import br.com.ifba.curso.entity.Curso;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 
 /**
  *
  * @author sunhe
  */
+
 public class TelaCadastrar extends javax.swing.JFrame {
 
     //Variaveis para pegar os dados do curso.
-    private String nomeCurso;
-    private String codCurso;
+    @Getter @Setter private String nomeCurso;
+    @Getter @Setter private String codCurso;
     
     //private final TelaCurso telaCurso;
     
-    private final CursoIController cursoController = new CursoController();
+    //private final CursoIController cursoController = new CursoController();
 
-    
-    
     /**
      * Creates new form CadastrarCurso
      */
-    
+  
     public TelaCadastrar() {
         initComponents();
-      
     }
 
     /**
@@ -157,7 +158,7 @@ public class TelaCadastrar extends javax.swing.JFrame {
             curso.setAtivo(true);
 
             //Salva as informações do curso no banco de dados.
-            cursoController.save(curso);
+            //cursoController.save(curso);
 
             //Atualiza a tabela de cursos e fecha a tela de cadastro
             this.dispose();

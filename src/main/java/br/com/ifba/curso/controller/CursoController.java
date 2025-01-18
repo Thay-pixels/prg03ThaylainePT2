@@ -10,6 +10,7 @@ import br.com.ifba.curso.service.CursoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import lombok.RequiredArgsConstructor;
 
 /**
  *
@@ -17,10 +18,11 @@ import org.springframework.stereotype.Controller;
  */
 
 @Controller
+@RequiredArgsConstructor
 public class CursoController implements CursoIController {
     
-    @Autowired
-    private CursoIService cursoIService; 
+    private final CursoIService cursoIService; 
+
     
     @Override
     public void save (Curso curso) throws RuntimeException{
@@ -51,5 +53,6 @@ public class CursoController implements CursoIController {
     public List<Curso> findAll() throws RuntimeException {
         return cursoIService.findAll();
     }
+    
     
 }

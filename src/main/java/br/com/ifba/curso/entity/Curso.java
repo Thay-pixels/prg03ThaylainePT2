@@ -12,6 +12,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import br.com.ifba.infrastructure.entity.PersistenceEntity;
 import java.io.Serializable;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  *
@@ -21,61 +24,21 @@ import java.io.Serializable;
 //Classe padrão de Curso.
 @Entity
 @Table(name = "cursos")
+@NoArgsConstructor
 public class Curso extends PersistenceEntity implements Serializable{
     
     //Atributos de Curso e colunas da tabela.
     @Column(name = "nome", nullable = false)
-    private String nome;
+    @Getter @Setter private String nome;
     
     @Column(name = "codigo_curso", nullable = false, unique = true)
-    private String codCurso;
+    @Getter @Setter private String codCurso;
     
     @Column(name = "ativo")
-    private boolean ativo;
+    @Getter @Setter private boolean ativo;
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    //Getters e Setters.
-    public String getNome() {
-        return nome;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getCodCurso() {
-        return codCurso;
-    }
-
-    public boolean isAtivo() {
-        return ativo;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setCodCurso(String codCurso) {
-        this.codCurso = codCurso;
-    }
-
-    public void setAtivo(boolean ativo) {
-        this.ativo = ativo;
-    }
-
-    //Constutor com todos os atributos.
-    public Curso(String nome, String codCurso, boolean ativo, Long id) {
-        this.nome = nome;
-        this.codCurso = codCurso;
-        this.ativo = ativo;
-        this.id = id;
-    }
-
-    //Construtor vazio.
-    public Curso() {
-    }
    
 }

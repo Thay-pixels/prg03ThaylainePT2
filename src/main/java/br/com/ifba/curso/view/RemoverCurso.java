@@ -116,7 +116,8 @@ public class RemoverCurso extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RemoverCurso().setVisible(true);
+                RemoverCurso tela = new RemoverCurso();
+                tela.setVisible(true);
             }
         });
     }

@@ -1,17 +1,14 @@
-C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\projeto_gerenciamentocurso - Copia\src\main\java\br\com\ifba\curso\controller\CursoController.java
-C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\projeto_gerenciamentocurso - Copia\src\main\java\br\com\ifba\curso\controller\CursoIController.java
-C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\projeto_gerenciamentocurso - Copia\src\main\java\br\com\ifba\curso\dao\CursoDao.java
-C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\projeto_gerenciamentocurso - Copia\src\main\java\br\com\ifba\curso\dao\CursoIDao.java
-C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\projeto_gerenciamentocurso - Copia\src\main\java\br\com\ifba\curso\entity\Curso.java
-C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\projeto_gerenciamentocurso - Copia\src\main\java\br\com\ifba\curso\service\CursoIService.java
-C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\projeto_gerenciamentocurso - Copia\src\main\java\br\com\ifba\curso\service\CursoService.java
-C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\projeto_gerenciamentocurso - Copia\src\main\java\br\com\ifba\curso\view\EditarCurso.java
-C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\projeto_gerenciamentocurso - Copia\src\main\java\br\com\ifba\curso\view\RemoverCurso.java
-C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\projeto_gerenciamentocurso - Copia\src\main\java\br\com\ifba\curso\view\TelaCadastrar.java
-C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\projeto_gerenciamentocurso - Copia\src\main\java\br\com\ifba\curso\view\TelaCurso.java
-C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\projeto_gerenciamentocurso - Copia\src\main\java\br\com\ifba\infrastructure\dao\GenericDao.java
-C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\projeto_gerenciamentocurso - Copia\src\main\java\br\com\ifba\infrastructure\dao\GenericIDao.java
-C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\projeto_gerenciamentocurso - Copia\src\main\java\br\com\ifba\infrastructure\entity\PersistenceEntity.java
-C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\projeto_gerenciamentocurso - Copia\src\main\java\br\com\ifba\springapplication\ConfigurableApplicationContext.java
-C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\projeto_gerenciamentocurso - Copia\src\main\java\br\com\ifba\springapplication\Prg03springApplication.java
-C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\projeto_gerenciamentocurso - Copia\src\main\java\com\mycompany\projeto_gerenciamentocurso\Projeto_gerenciamentocurso.java
+C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\gerenciamento_curso (git)\src\main\java\br\com\ifba\curso\controller\CursoController.java
+C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\gerenciamento_curso (git)\src\main\java\br\com\ifba\curso\controller\CursoIController.java
+C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\gerenciamento_curso (git)\src\main\java\br\com\ifba\curso\entity\Curso.java
+C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\gerenciamento_curso (git)\src\main\java\br\com\ifba\curso\repository\CursoRepository.java
+C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\gerenciamento_curso (git)\src\main\java\br\com\ifba\curso\service\CursoIService.java
+C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\gerenciamento_curso (git)\src\main\java\br\com\ifba\curso\service\CursoService.java
+C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\gerenciamento_curso (git)\src\main\java\br\com\ifba\curso\view\EditarCurso.java
+C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\gerenciamento_curso (git)\src\main\java\br\com\ifba\curso\view\RemoverCurso.java
+C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\gerenciamento_curso (git)\src\main\java\br\com\ifba\curso\view\TelaCadastrar.java
+C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\gerenciamento_curso (git)\src\main\java\br\com\ifba\curso\view\TelaCurso.java
+C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\gerenciamento_curso (git)\src\main\java\br\com\ifba\infrastructure\entity\PersistenceEntity.java
+C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\gerenciamento_curso (git)\src\main\java\br\com\ifba\springapplication\ConfigurableApplicationContext.java
+C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\gerenciamento_curso (git)\src\main\java\br\com\ifba\springapplication\Prg03springApplication.java
+C:\Users\sunhe\OneDrive\Documentos\NetBeansProjects\gerenciamento_curso (git)\src\main\java\com\mycompany\projeto_gerenciamentocurso\Projeto_gerenciamentocurso.java

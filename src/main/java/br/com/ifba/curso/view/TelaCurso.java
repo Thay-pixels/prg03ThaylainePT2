@@ -6,14 +6,12 @@ package br.com.ifba.curso.view;
 
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import br.com.ifba.curso.controller.CursoController;
 import br.com.ifba.curso.controller.CursoIController;
 import br.com.ifba.curso.entity.Curso;
-import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import lombok.RequiredArgsConstructor;
 
 
 /**
@@ -22,17 +20,18 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
+@RequiredArgsConstructor
 public class TelaCurso extends javax.swing.JFrame {
 
     private TelaCurso tela;
     
-    @Autowired
-    CursoIController cursoController;
+    private final CursoIController cursoController = null;
     
     /**
      * Creates new form TelaCurso
      */
-    public TelaCurso() {
+    
+    void init(){
         initComponents();
     }
     
@@ -233,7 +232,10 @@ public class TelaCurso extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaCurso().setVisible(true);
+                //new TelaCurso().setVisible(true);
+                TelaCurso tela = new TelaCurso();
+                tela.setVisible(true);
+                tela.init();
             }
         });
     }
